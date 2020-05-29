@@ -1,0 +1,7 @@
+include dash_igv/dash_igv.min.js
+include dash_igv/dash_igv.min.js.map
+include dash_igv/metadata.json
+include dash_igv/package-info.json
+include README.md
+include LICENSE
+include package.json

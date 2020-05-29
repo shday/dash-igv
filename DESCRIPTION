@@ -1,0 +1,15 @@
+Package: dashIgv
+Title: an interactive genome visualization component
+Version: 0.0.1
+Authors @R: as.person(c(Stephen Day <stephen.h.day@gmail.com>))
+Description: an interactive genome visualization component
+Depends: R (>= 3.0.2)
+Imports: 
+Suggests: 
+License: MIT + file LICENSE
+URL: https://github.com/shday/dash-igv
+BugReports: https://github.com/shday/dash-igv/issues
+Encoding: UTF-8
+LazyData: true
+Author: Stephen Day [aut]
+Maintainer: Stephen Day <stephen.h.day@gmail.com>
