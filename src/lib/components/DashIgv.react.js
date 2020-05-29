@@ -1,6 +1,8 @@
 import React, {Component} from 'react';
 import PropTypes from 'prop-types';
 
+import igv from 'tmp_es6_igv';
+
 /**
  * ExampleComponent is an example component.
  * It takes a property, `label`, and
