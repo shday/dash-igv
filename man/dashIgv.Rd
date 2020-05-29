@@ -20,3 +20,6 @@ dashIgv(id=NULL, label=NULL, value=NULL)
 
 \item{value}{Character. The value displayed in the input.}
 }
+
+\value{named list of JSON elements corresponding to React.js properties and their values}
+
