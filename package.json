@@ -24,6 +24,7 @@
   "author": "Stephen Day <stephen.h.day@gmail.com>",
   "license": "MIT",
   "dependencies": {
+    "igv.js-react": "git+https://github.com/eweitz/igv.js-react.git",
     "ramda": "^0.26.1"
   },
   "devDependencies": {
