@@ -3,6 +3,13 @@ import PropTypes from 'prop-types';
 
 import igv from 'tmp_es6_igv';
 
+var igvStyle = {
+  paddingTop: '10px',
+  paddingBottom: '10px',
+  margin: '8px',
+  border: '1px solid lightgray'
+}
+
 /**
  * ExampleComponent is an example component.
  * It takes a property, `label`, and
@@ -11,6 +18,13 @@ import igv from 'tmp_es6_igv';
  * which is editable by the user.
  */
 export default class DashIgv extends Component {
+
+    componentDidMount() {
+        var igvContainer = document.getElementById('igv-div');
+        var igvOptions = {genome: 'hg38', locus: 'BRCA1'};
+        return igv.createBrowser(igvContainer, igvOptions);
+    }
+
     render() {
         const {id, label, setProps, value} = this.props;
 
@@ -32,9 +46,12 @@ export default class DashIgv extends Component {
                         e => setProps({ value: e.target.value })
                     }
                 />
+                <div id="igv-div" style={igvStyle}></div>
             </div>
         );
     }
+
+
 }
 
 DashIgv.defaultProps = {};
