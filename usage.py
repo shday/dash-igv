@@ -3,21 +3,46 @@ import dash
 from dash.dependencies import Input, Output
 import dash_html_components as html
 
+igvStyle = dict(
+  paddingTop = '10px',
+  paddingBottom = '10px',
+  margin = '8px',
+  border = '1px solid lightgray'
+)
+
 app = dash.Dash(__name__)
 
 app.layout = html.Div([
     dash_igv.DashIgv(
-        id='input',
+        id='myigv',
         value='my-value',
-        label='my-label'
+        label='my-label',
+        reference = {
+                    "id": "ASM985889v3",
+                    "name": "Sars-CoV-2 (ASM985889v3)",
+                    "fastaURL": "https://s3.amazonaws.com/igv.org.genomes/covid_ASM985889v3/GCF_009858895.2_ASM985889v3_genomic.fna",
+                    "indexURL": "https://s3.amazonaws.com/igv.org.genomes/covid_ASM985889v3/GCF_009858895.2_ASM985889v3_genomic.fna.fai",
+                    "order": 1000000,
+                    "tracks" : [
+                      {
+                        "name": "Annotations",
+                        "url": "https://s3.amazonaws.com/igv.org.genomes/covid_ASM985889v3/GCF_009858895.2_ASM985889v3_genomic.gff.gz",
+                        "displayMode": "EXPANDED",
+                        "nameField": "gene",
+                        "height": 150
+                      }
+                    ]
+
+                  },
+        #style = igvStyle
     ),
     html.Div(id='output')
 ])
 
 
-@app.callback(Output('output', 'children'), [Input('input', 'value')])
-def display_output(value):
-    return 'You have entered {}'.format(value)
+#@app.callback(Output('output', 'children'), [Input('myigv', 'value')])
+#def display_output(value):
+#    return 'You have entered {}'.format(value)
 
 
 if __name__ == '__main__':

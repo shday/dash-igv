@@ -3,12 +3,6 @@ import PropTypes from 'prop-types';
 
 import igv from 'tmp_es6_igv';
 
-var igvStyle = {
-  paddingTop: '10px',
-  paddingBottom: '10px',
-  margin: '8px',
-  border: '1px solid lightgray'
-}
 
 /**
  * ExampleComponent is an example component.
@@ -23,33 +17,20 @@ export default class DashIgv extends Component {
         var igvContainer = document.getElementById('igv-div');
         var igvOptions = {
             locus: "all",
-            reference: {
-                    "id": "ASM985889v3",
-                    "name": "Sars-CoV-2 (ASM985889v3)",
-                    "fastaURL": "https://s3.amazonaws.com/igv.org.genomes/covid_ASM985889v3/GCF_009858895.2_ASM985889v3_genomic.fna",
-                    "indexURL": "https://s3.amazonaws.com/igv.org.genomes/covid_ASM985889v3/GCF_009858895.2_ASM985889v3_genomic.fna.fai",
-                    "order": 1000000,
-                    "tracks": [
-                      {
-                        "name": "Annotations",
-                        "url": "https://s3.amazonaws.com/igv.org.genomes/covid_ASM985889v3/GCF_009858895.2_ASM985889v3_genomic.gff.gz",
-                        "displayMode": "EXPANDED",
-                        "nameField": "gene",
-                        "height": 150
-                      }
-                    ]
+            reference: this.props.reference,
+            minimumBases: this.props.minimumBases
 
-                  }
+                  
         };
         return igv.createBrowser(igvContainer, igvOptions);
     }
 
     render() {
-        const {id, label, setProps, value} = this.props;
+        const {id, setProps, value, style} = this.props;
 
         return (
             <div id={id}>
-                <h2>ExampleComponent:</h2> {label}&nbsp;
+                <h2>ExampleComponent:</h2>&nbsp;
                 <input
                     value={value}
                     onChange={
@@ -65,7 +46,7 @@ export default class DashIgv extends Component {
                         e => setProps({ value: e.target.value })
                     }
                 />
-                <div id="igv-div" style={igvStyle}></div>
+                <div id="igv-div" style={style}></div>
             </div>
         );
     }
@@ -95,5 +76,25 @@ DashIgv.propTypes = {
      * Dash-assigned callback that should be called to report property changes
      * to Dash, to make them available for callbacks.
      */
-    setProps: PropTypes.func
+    setProps: PropTypes.func,
+
+    /**
+    */
+    reference: PropTypes.object,
+
+    /**
+     * Minimum window size in base pairs when zooming in
+     */
+    minimumBases: PropTypes.object,
+
+
+        /**
+     * Generic style overrides on the plot div
+     */
+    style: PropTypes.object,
+
+    /**
+     * className of the parent div
+     */
+    className: PropTypes.string
 };
