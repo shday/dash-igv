@@ -21,7 +21,26 @@ export default class DashIgv extends Component {
 
     componentDidMount() {
         var igvContainer = document.getElementById('igv-div');
-        var igvOptions = {genome: 'hg38', locus: 'BRCA1'};
+        var igvOptions = {
+            locus: "all",
+            reference: {
+                    "id": "ASM985889v3",
+                    "name": "Sars-CoV-2 (ASM985889v3)",
+                    "fastaURL": "https://s3.amazonaws.com/igv.org.genomes/covid_ASM985889v3/GCF_009858895.2_ASM985889v3_genomic.fna",
+                    "indexURL": "https://s3.amazonaws.com/igv.org.genomes/covid_ASM985889v3/GCF_009858895.2_ASM985889v3_genomic.fna.fai",
+                    "order": 1000000,
+                    "tracks": [
+                      {
+                        "name": "Annotations",
+                        "url": "https://s3.amazonaws.com/igv.org.genomes/covid_ASM985889v3/GCF_009858895.2_ASM985889v3_genomic.gff.gz",
+                        "displayMode": "EXPANDED",
+                        "nameField": "gene",
+                        "height": 150
+                      }
+                    ]
+
+                  }
+        };
         return igv.createBrowser(igvContainer, igvOptions);
     }
 
