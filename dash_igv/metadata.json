@@ -32,20 +32,6 @@
         "required": false,
         "description": "Dash-assigned callback that should be called to report property changes\nto Dash, to make them available for callbacks."
       },
-      "reference": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": ""
-      },
-      "minimumBases": {
-        "type": {
-          "name": "object"
-        },
-        "required": false,
-        "description": "Minimum window size in base pairs when zooming in"
-      },
       "style": {
         "type": {
           "name": "object"
@@ -59,6 +45,41 @@
         },
         "required": false,
         "description": "className of the parent div"
+      },
+      "genome": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "String identifier defining genome (e.g. \"hg19\"). See https://github.com/igvteam/igv.js/wiki/Reference-Genome\n    for details and list of supported identifiers. Note: One (but only one) of\n    either genome or reference properties must be set."
+      },
+      "reference": {
+        "type": {
+          "name": "object"
+        },
+        "required": false,
+        "description": "Object defining reference genome. see https://github.com/igvteam/igv.js/wiki/Reference-Genome\n    Note: One (but only one) of either genome or reference properties must be set."
+      },
+      "locus": {
+        "type": {
+          "name": "string"
+        },
+        "required": false,
+        "description": "Initial genomic location(s). Either a string or an array of strings.\n    If an array a viewport is created for each location."
+      },
+      "minimumBases": {
+        "type": {
+          "name": "number"
+        },
+        "required": false,
+        "description": "Minimum window size in base pairs when zooming in"
+      },
+      "tracks": {
+        "type": {
+          "name": "array"
+        },
+        "required": false,
+        "description": "Array of configuration objects defining tracks initially displayed when app launches.\n    see https://github.com/igvteam/igv.js/wiki/Tracks-2.0"
       }
     }
   }

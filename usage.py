@@ -34,7 +34,16 @@ app.layout = html.Div([
                     ]
 
                   },
-        #style = igvStyle
+        tracks = [{ #normally, tracks listed here would not duplicate those already present above
+                
+              "name": "Genes",
+              "type": "annotation",
+              "url": "https://ftp.ncbi.nlm.nih.gov/genomes/all/GCF/009/858/895/GCF_009858895.2_ASM985889v3/GCF_009858895.2_ASM985889v3_genomic.gff.gz",
+              "displayMode": "EXPANDED"
+    
+            }],
+        minimumBases = 100, 
+        style = igvStyle
     ),
     html.Div(id='output')
 ])

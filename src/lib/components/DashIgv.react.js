@@ -16,11 +16,11 @@ export default class DashIgv extends Component {
     componentDidMount() {
         var igvContainer = document.getElementById('igv-div');
         var igvOptions = {
-            locus: "all",
+            genom: this.props.genome,
+            locus: this.props.locus,
             reference: this.props.reference,
-            minimumBases: this.props.minimumBases
-
-                  
+            minimumBases: this.props.minimumBases,
+            tracks: this.props.tracks,
         };
         return igv.createBrowser(igvContainer, igvOptions);
     }
@@ -79,16 +79,6 @@ DashIgv.propTypes = {
     setProps: PropTypes.func,
 
     /**
-    */
-    reference: PropTypes.object,
-
-    /**
-     * Minimum window size in base pairs when zooming in
-     */
-    minimumBases: PropTypes.object,
-
-
-        /**
      * Generic style overrides on the plot div
      */
     style: PropTypes.object,
@@ -96,5 +86,36 @@ DashIgv.propTypes = {
     /**
      * className of the parent div
      */
-    className: PropTypes.string
+    className: PropTypes.string,
+
+     /**
+    String identifier defining genome (e.g. "hg19"). See https://github.com/igvteam/igv.js/wiki/Reference-Genome
+    for details and list of supported identifiers. Note: One (but only one) of
+    either genome or reference properties must be set.
+    */   
+    genome: PropTypes.string,
+
+    /**
+    Object defining reference genome. see https://github.com/igvteam/igv.js/wiki/Reference-Genome
+    Note: One (but only one) of either genome or reference properties must be set.
+    */
+    reference: PropTypes.object,
+
+    /**
+    Initial genomic location(s). Either a string or an array of strings.
+    If an array a viewport is created for each location.
+    */
+    locus: PropTypes.string,
+
+    /**
+     * Minimum window size in base pairs when zooming in
+     */
+    minimumBases: PropTypes.number,
+
+    /**
+    Array of configuration objects defining tracks initially displayed when app launches.
+    see https://github.com/igvteam/igv.js/wiki/Tracks-2.0
+    */
+    tracks: PropTypes.array,
+
 };

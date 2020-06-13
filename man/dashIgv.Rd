@@ -10,8 +10,9 @@ ExampleComponent is an example component. It takes a property, `label`, and disp
 }
 
 \usage{
-dashIgv(id=NULL, label=NULL, value=NULL, reference=NULL,
-minimumBases=NULL, style=NULL, className=NULL)
+dashIgv(id=NULL, label=NULL, value=NULL, style=NULL, className=NULL,
+genome=NULL, reference=NULL, locus=NULL, minimumBases=NULL,
+tracks=NULL)
 }
 
 \arguments{
@@ -21,13 +22,24 @@ minimumBases=NULL, style=NULL, className=NULL)
 
 \item{value}{Character. The value displayed in the input.}
 
-\item{reference}{Named list. }
-
-\item{minimumBases}{Named list. Minimum window size in base pairs when zooming in}
-
 \item{style}{Named list. Generic style overrides on the plot div}
 
 \item{className}{Character. className of the parent div}
+
+\item{genome}{Character. String identifier defining genome (e.g. "hg19"). See https://github.com/igvteam/igv.js/wiki/Reference-Genome
+    for details and list of supported identifiers. Note: One (but only one) of
+    either genome or reference properties must be set.}
+
+\item{reference}{Named list. Object defining reference genome. see https://github.com/igvteam/igv.js/wiki/Reference-Genome
+    Note: One (but only one) of either genome or reference properties must be set.}
+
+\item{locus}{Character. Initial genomic location(s). Either a string or an array of strings.
+    If an array a viewport is created for each location.}
+
+\item{minimumBases}{Numeric. Minimum window size in base pairs when zooming in}
+
+\item{tracks}{Unnamed list. Array of configuration objects defining tracks initially displayed when app launches.
+    see https://github.com/igvteam/igv.js/wiki/Tracks-2.0}
 }
 
 \value{named list of JSON elements corresponding to React.js properties and their values}

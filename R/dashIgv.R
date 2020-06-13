@@ -1,8 +1,8 @@
 # AUTO GENERATED FILE - DO NOT EDIT
 
-dashIgv <- function(id=NULL, label=NULL, value=NULL, reference=NULL, minimumBases=NULL, style=NULL, className=NULL) {
+dashIgv <- function(id=NULL, label=NULL, value=NULL, style=NULL, className=NULL, genome=NULL, reference=NULL, locus=NULL, minimumBases=NULL, tracks=NULL) {
     
-    props <- list(id=id, label=label, value=value, reference=reference, minimumBases=minimumBases, style=style, className=className)
+    props <- list(id=id, label=label, value=value, style=style, className=className, genome=genome, reference=reference, locus=locus, minimumBases=minimumBases, tracks=tracks)
     if (length(props) > 0) {
         props <- props[!vapply(props, is.null, logical(1))]
     }
@@ -10,7 +10,7 @@ dashIgv <- function(id=NULL, label=NULL, value=NULL, reference=NULL, minimumBase
         props = props,
         type = 'DashIgv',
         namespace = 'dash_igv',
-        propNames = c('id', 'label', 'value', 'reference', 'minimumBases', 'style', 'className'),
+        propNames = c('id', 'label', 'value', 'style', 'className', 'genome', 'reference', 'locus', 'minimumBases', 'tracks'),
         package = 'dashIgv'
         )
 
