@@ -5,16 +5,11 @@ import igv from 'tmp_es6_igv';
 
 
 /**
- * ExampleComponent is an example component.
- * It takes a property, `label`, and
- * displays it.
- * It renders an input with the property `value`
- * which is editable by the user.
  */
 export default class DashIgv extends Component {
 
     componentDidMount() {
-        var igvContainer = document.getElementById('igv-div');
+        var igvContainer = document.getElementById(this.props.id);
         var igvOptions = {
             genom: this.props.genome,
             locus: this.props.locus,
@@ -26,28 +21,10 @@ export default class DashIgv extends Component {
     }
 
     render() {
-        const {id, setProps, value, style} = this.props;
+        const {id, style} = this.props;
 
         return (
-            <div id={id}>
-                <h2>ExampleComponent:</h2>&nbsp;
-                <input
-                    value={value}
-                    onChange={
-                        /*
-                         * Send the new value to the parent component.
-                         * setProps is a prop that is automatically supplied
-                         * by dash's front-end ("dash-renderer").
-                         * In a Dash app, this will update the component's
-                         * props and send the data back to the Python Dash
-                         * app server if a callback uses the modified prop as
-                         * Input or State.
-                         */
-                        e => setProps({ value: e.target.value })
-                    }
-                />
-                <div id="igv-div" style={style}></div>
-            </div>
+            <div id={id} style={style} />
         );
     }
 
