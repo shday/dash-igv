@@ -6,21 +6,16 @@
 \title{DashIgv component}
 
 \description{
-
+The DashIgv component is an interactive genome visualization component developed by the Integrative Genomics Viewer (IGV) team. It uses an  example integration of igv.js and React (https://github.com/eweitz/igv.js-react).
 }
 
 \usage{
-dashIgv(id=NULL, label=NULL, value=NULL, style=NULL, className=NULL,
-genome=NULL, reference=NULL, locus=NULL, minimumBases=NULL,
-tracks=NULL)
+dashIgv(id=NULL, style=NULL, className=NULL, genome=NULL,
+reference=NULL, locus=NULL, minimumBases=NULL, tracks=NULL)
 }
 
 \arguments{
 \item{id}{Character. The ID used to identify this component in Dash callbacks.}
-
-\item{label}{Character. A label that will be printed when this component is rendered.}
-
-\item{value}{Character. The value displayed in the input.}
 
 \item{style}{Named list. Generic style overrides on the plot div}
 

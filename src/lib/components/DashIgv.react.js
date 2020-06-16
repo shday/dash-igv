@@ -5,13 +5,16 @@ import igv from 'tmp_es6_igv';
 
 
 /**
+ * The DashIgv component is an interactive genome visualization component
+ * developed by the Integrative Genomics Viewer (IGV) team. It uses an 
+ * example integration of igv.js and React (https://github.com/eweitz/igv.js-react).
  */
 export default class DashIgv extends Component {
 
     componentDidMount() {
         var igvContainer = document.getElementById(this.props.id);
         var igvOptions = {
-            genom: this.props.genome,
+            genome: this.props.genome,
             locus: this.props.locus,
             reference: this.props.reference,
             minimumBases: this.props.minimumBases,
@@ -38,16 +41,6 @@ DashIgv.propTypes = {
      * The ID used to identify this component in Dash callbacks.
      */
     id: PropTypes.string,
-
-    /**
-     * A label that will be printed when this component is rendered.
-     */
-    label: PropTypes.string.isRequired,
-
-    /**
-     * The value displayed in the input.
-     */
-    value: PropTypes.string,
 
     /**
      * Dash-assigned callback that should be called to report property changes

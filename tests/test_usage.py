@@ -13,7 +13,6 @@ def test_render_component(dash_duo):
     # Check that both tracks leaded
     tracks = dash_duo.find_elements('.igv-track-label')
 
-    assert 'Annotations' == tracks[0].text
-    assert 'Genes' == tracks[1].text
-
-
+    assert tracks[0].text == 'Annotations'
+    assert tracks[1].text == 'Genes'
+    

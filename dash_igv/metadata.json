@@ -1,6 +1,6 @@
 {
   "src/lib/components/DashIgv.react.js": {
-    "description": "",
+    "description": "The DashIgv component is an interactive genome visualization component\ndeveloped by the Integrative Genomics Viewer (IGV) team. It uses an \nexample integration of igv.js and React (https://github.com/eweitz/igv.js-react).",
     "displayName": "DashIgv",
     "methods": [],
     "props": {
@@ -10,20 +10,6 @@
         },
         "required": false,
         "description": "The ID used to identify this component in Dash callbacks."
-      },
-      "label": {
-        "type": {
-          "name": "string"
-        },
-        "required": true,
-        "description": "A label that will be printed when this component is rendered."
-      },
-      "value": {
-        "type": {
-          "name": "string"
-        },
-        "required": false,
-        "description": "The value displayed in the input."
       },
       "setProps": {
         "type": {
